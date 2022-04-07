@@ -40,8 +40,18 @@ var app = new Vue(
                     done: false,
                 }
                 //Aggiungo il task solamente se la stringa non è vuota
-                if ( !this.taskAdded == '' ){
+                if ( !this.taskAdded == ''){
                     this.tasks.push(newTask);
+                    //Svuoto l'input dopo aver inserito il task
+                    this.taskAdded = '';
+                }
+            },
+            //Funzione per cambiare stato al task e barrarlo/sbarrarlo
+            taskDone: function(element){
+                if (element.done == true){
+                    element.done = false;
+                } else {
+                    element.done = true;
                 }
             },
         }

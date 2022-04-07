@@ -33,7 +33,9 @@
                     <li class="d-flex justify-content-between align-items-center p-2"
                     v-for="(task, index) in tasks"
                     :key="index">
-                        <p>{{ task.text }}</p>
+                        <p :class=" (task.done == true) ? 'done' : '' "
+                        role="button"
+                        @click="taskDone(task)">{{ task.text }}</p>
                         <i class="fa-solid fa-circle-xmark text-danger"
                         role="button"
                         @click="removeTask(index)"></i>
