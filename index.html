@@ -18,12 +18,16 @@
     <div id="root">
         <h1 class="text-center">To-Do List</h1>
         <div class="d-flex justify-content-center align-items-center my-3 container">
-            <input type="text" class="me-4 form-control" placeholder="Aggiungi task">
-            <button type="button" class="btn btn-dark" @click="">Aggiungi</button>
+            <input type="text" class="me-4 form-control" placeholder="Aggiungi task"
+            v-model="taskAdded"
+            @keyup.enter="addTask">
+            <button type="button" class="btn btn-dark" @click="addTask">Aggiungi</button>
         </div>
 
         <div class="container">
-            <!-- <h2 class="text-center">Non ci sono task da svolgere</h2> -->
+            <h2 class="text-center"
+            v-if="tasks.length == 0">
+            Non ci sono task da svolgere</h2>
             <div class="w-50 mx-auto">
                 <ul>
                     <li class="d-flex justify-content-between align-items-center p-2"

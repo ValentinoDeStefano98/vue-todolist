@@ -3,6 +3,7 @@ var app = new Vue(
     {
         el: '#root',
         data:{
+            taskAdded: '',
             tasks: [
                 {               
                 text: 'Fare la spesa',
@@ -31,7 +32,18 @@ var app = new Vue(
             //Funzione per rimuovere il task al click della x
             removeTask: function(taskIndex){
                 this.tasks.splice(taskIndex, 1);
-            }
+            },
+            //Funzione per aggiungere un task alla lista
+            addTask: function(){
+                let newTask = {
+                    text: this.taskAdded,
+                    done: false,
+                }
+                //Aggiungo il task solamente se la stringa non è vuota
+                if ( !this.taskAdded == '' ){
+                    this.tasks.push(newTask);
+                }
+            },
         }
     }
 );
